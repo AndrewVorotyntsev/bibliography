@@ -9,6 +9,7 @@
     <el-input class="book-input__field" placeholder="Количество страниц" v-model="form.pages" />
     <el-input class="book-input__field" placeholder="Дополнительные сведения" v-model="form.additionals" />
     <el-input class="book-input__field" placeholder="ISBN" v-model="form.isbn" />
+    <el-button type="primary" @click="() => save()" >Сохранить</el-button>
   </div>
 
 </template>
@@ -29,6 +30,11 @@
           additionals: '',
           isbn: ''
         }
+      }
+    },
+    methods: {
+      save() {
+        console.log(this.form)
       }
     }
   }
