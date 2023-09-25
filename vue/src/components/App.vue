@@ -2,18 +2,18 @@
   <div>
     <RouterView />
     <ModalContainer />
-    <BookInputComponent />
+    <BookForm />
   </div>
 </template>
 
 <script>
 import ModalContainer from "@/components/parts/ModalContainer";
-import BookInputComponent from "@/components/BookInputComponent.vue";
+import BookForm from "@/components/BookForm.vue";
 
 export default {
   components: {
     ModalContainer,
-    BookInputComponent
+    BookForm
   }
 }
 </script>
