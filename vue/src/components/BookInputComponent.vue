@@ -1,15 +1,15 @@
 <template>
   <div class="book-input">
-    <el-input class="book-input__field" placeholder="Автор" v-model="form.author" />
-    <el-input class="book-input__field" placeholder="Инициалы автора" v-model="form.initials" />
-    <el-input class="book-input__field" placeholder="Заглавие" v-model="form.title" />
-    <el-input class="book-input__field" placeholder="Место издания" v-model="form.place" />
-    <el-input class="book-input__field" placeholder="Издательство" v-model="form.publisher" />
-    <el-input class="book-input__field" placeholder="Год издания" v-model="form.year" />
-    <el-input class="book-input__field" placeholder="Количество страниц" v-model="form.pages" />
-    <el-input class="book-input__field" placeholder="Дополнительные сведения" v-model="form.additionals" />
-    <el-input class="book-input__field" placeholder="ISBN" v-model="form.isbn" />
-    <el-button type="primary" @click="() => save()" >Сохранить</el-button>
+    <el-input v-model="form.author" class="book-input__field" placeholder="Автор" />
+    <el-input v-model="form.initials" class="book-input__field" placeholder="Инициалы автора" />
+    <el-input v-model="form.title" class="book-input__field" placeholder="Заглавие" />
+    <el-input v-model="form.place" class="book-input__field" placeholder="Место издания" />
+    <el-input v-model="form.publisher" class="book-input__field" placeholder="Издательство" />
+    <el-input v-model="form.year" class="book-input__field" placeholder="Год издания" />
+    <el-input v-model="form.pages" class="book-input__field" placeholder="Количество страниц" />
+    <el-input v-model="form.additionals" class="book-input__field" placeholder="Дополнительные сведения" />
+    <el-input v-model="form.isbn" class="book-input__field" placeholder="ISBN" />
+    <el-button type="primary" @click="() => save()">Сохранить</el-button>
   </div>
 
 </template>
