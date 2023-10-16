@@ -1,5 +1,9 @@
 const booksLocalStorageKey = 'books'
 
+const syncStateBooks = (state) => {
+  localStorage.setItem(booksLocalStorageKey, JSON.stringify(state.books))
+}
+
 export default {
   namespaced: true,
   state: {
@@ -23,38 +27,26 @@ export default {
 		},
     // Записать книги
     setBooks: (state, payload) => {
-      localStorage.setItem(booksLocalStorageKey, JSON.stringify(payload))
       state.books = payload
+      syncStateBooks(state)
     },
     // Добавление книги
     addBook: (state, payload) => {
-      let localBooks = localStorage.getItem(booksLocalStorageKey)
-      let localArrayBooks = JSON.parse(localBooks)
-      localArrayBooks.push(payload)
-      localStorage.setItem(booksLocalStorageKey, JSON.stringify(localArrayBooks))
       state.books.push(payload)
+      syncStateBooks(state)
     },
     // Удаление книги по индексу
     removeBook: (state, payload) => {
-      let localBooks = localStorage.getItem(booksLocalStorageKey)
-      let localArrayBooks = JSON.parse(localBooks)
       const objWithIdIndex = state.books.findIndex((book) => book.id === payload);
       if (objWithIdIndex > -1) {
         state.books.splice(objWithIdIndex, 1);
-        localArrayBooks.splice(objWithIdIndex, 1);
+        syncStateBooks(state)
       }
-      localStorage.setItem(booksLocalStorageKey, JSON.stringify(localArrayBooks))
     },
     // Редактирование книги
     editBook: (state, payload) => {
-      let localBooks = localStorage.getItem(booksLocalStorageKey)
-      let localArrayBooks = JSON.parse(localBooks)
-      const objWithIdIndex = state.books.findIndex((book) => book.id === payload);
-      if (objWithIdIndex > -1) {
-        state.books.splice(objWithIdIndex, 1, payload);
-        localArrayBooks.splice(objWithIdIndex, 1, payload);
-      }
-      localStorage.setItem(booksLocalStorageKey, JSON.stringify(localArrayBooks))
+      state.books = state.books.map((book) => book.id == book.id ? payload : book)
+      syncStateBooks(state)
     }
   },
   actions: {
