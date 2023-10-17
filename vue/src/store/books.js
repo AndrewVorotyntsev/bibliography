@@ -7,7 +7,7 @@ const syncStateBooks = (state) => {
 export default {
   namespaced: true,
   state: {
-    books: []
+    books: localStorage.getItem(booksLocalStorageKey)
   },
   getters: {
     // Получить список книг
@@ -16,15 +16,6 @@ export default {
     getBook: (state) => (id) => state.books.find((book) => book.id == id)
   },
   mutations: {
-    // Инициализация хранилища
-    // Необходимо вызывать в методе beforeCreate() в экземпляре Vue
-    initialiseStore(state) {
-			if(localStorage.getItem(booksLocalStorageKey)) {
-				this.replaceState(
-					Object.assign(state, JSON.parse(localStorage.getItem(booksLocalStorageKey)))
-				);
-			}
-		},
     // Записать книги
     setBooks: (state, payload) => {
       state.books = payload
