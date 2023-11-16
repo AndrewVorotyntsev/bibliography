@@ -24,6 +24,10 @@ export default {
     typeList: {
       type: String,
       default: 'ul'
+    },
+    isEdit: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {

@@ -26,12 +26,21 @@
 import ModalContainer from "@/components/parts/ModalContainer";
 import ListContainer from "@/components/List.vue";
 import BookForm from "@/components/BookForm.vue";
+import {mapGetters} from "vuex";
 
 export default {
   components: {
     ModalContainer,
     BookForm,
     ListContainer
+  },
+  computed: {
+    ...mapGetters('books', [
+      'getBooks'
+    ]),
+    books () {
+      return this.getBooks
+    }
   },
   data() {
     return {
@@ -45,13 +54,7 @@ export default {
       }, {
         value: "div",
         label: "По умолчанию"
-      }],
-      books: [
-        { id: 1, title: "A", author: "a" },
-        { id: 2, title: "B", author: "b" },
-        { id: 3, title: "C", author: "c" },
-        { id: 4, title: "D", author: "d" }
-      ]
+      }]
     }
   }
 }
