@@ -1,11 +1,14 @@
 <template>
-  <PageLayout/>
+  <PageLayout>
+    <BookForm></BookForm>
+  </PageLayout>
 </template>
 
 
 <script setup lang="ts">
 
 import PageLayout from "@/components/parts/PageLayout.vue";
+import BookForm from "@/components/BookForm.vue";
 </script>
 
 

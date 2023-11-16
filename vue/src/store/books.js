@@ -7,7 +7,7 @@ const syncStateBooks = (state) => {
 export default {
   namespaced: true,
   state: {
-    books: localStorage.getItem(booksLocalStorageKey)
+    books: JSON.parse(localStorage.getItem(booksLocalStorageKey)) || []
   },
   getters: {
     // Получить список книг
