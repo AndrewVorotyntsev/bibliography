@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../components/pages/Home.vue'
 import { RouteNames } from './routes'
-import EditScreen from "@/components/pages/EditPage.vue";
 import EditPage from "@/components/pages/EditPage.vue";
 
 Vue.use(VueRouter)
