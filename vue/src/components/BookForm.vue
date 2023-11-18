@@ -123,7 +123,6 @@ export default {
     ]),
     save () {
       this.addBook({...this.form});
-      console.log(this.form)
     }
   }
 }
