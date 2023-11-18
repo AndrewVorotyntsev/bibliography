@@ -13,12 +13,12 @@
             type="danger"
             icon="el-icon-delete"
             circle
-            @click="() => deleteBook(book)"/>
+            @click="() => deleteBook(book)"
+        />
       </li>
     </component>
   </div>
 </template>
-
 <script>
 
 import {mapActions} from "vuex";
@@ -56,4 +56,3 @@ export default {
   },
 }
 </script>
-<style></style>
