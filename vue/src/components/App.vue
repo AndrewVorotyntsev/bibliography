@@ -23,7 +23,11 @@
         </a>
       </div>
       <div class="main-block-content">
-        <ListContainer :books="books" :type-list="typeOfList" />
+        <ListContainer
+            :books="books"
+            :type-list="typeOfList"
+            :is-edit="$route.path===editEndpoint"
+        />
         <div>
           <el-select v-model="typeOfList" placeholder="Выберите тип списка">
             <el-option
@@ -37,9 +41,9 @@
         </div>
       </div>
     </div>
+    <BookForm />
     <RouterView />
     <ModalContainer />
-    <BookForm />
   </div>
 </template>
 
@@ -67,7 +71,8 @@ export default {
       }, {
         value: "div",
         label: "По умолчанию"
-      }]
+      }],
+      editEndpoint: "/edit"
     }
   },
   computed: {
