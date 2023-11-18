@@ -55,14 +55,6 @@ export default {
     BookForm,
     ListContainer
   },
-  computed: {
-    ...mapGetters('books', [
-      'getBooks'
-    ]),
-    books () {
-      return this.getBooks
-    }
-  },
   data () {
     return {
       typeOfList: 'div',
