@@ -26,7 +26,7 @@
         <ListContainer
             :books="books"
             :type-list="typeOfList"
-            :is-edit="$route.path===editEndpoint"
+            :is-edit="$route.name===RouteNames.EDIT"
         />
         <div>
           <el-select v-model="typeOfList" placeholder="Выберите тип списка">
@@ -52,6 +52,7 @@ import ModalContainer from "@/components/parts/ModalContainer";
 import ListContainer from "@/components/List.vue";
 import BookForm from "@/components/BookForm.vue";
 import {mapGetters, mapMutations} from "vuex";
+import {RouteNames} from "@/router/routes";
 
 export default {
   components: {
@@ -71,11 +72,13 @@ export default {
       }, {
         value: "div",
         label: "По умолчанию"
-      }],
-      editEndpoint: "/edit"
+      }]
     }
   },
   computed: {
+    RouteNames() {
+      return RouteNames
+    },
     ...mapGetters('books', [
       'getBooks'
     ]),
