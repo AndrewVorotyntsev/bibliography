@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import {mapMutations} from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: 'BookForm',
@@ -80,7 +80,7 @@ export default {
         publisher: '',
         year: '',
         pages: '',
-        pegesNum: '',
+        pagesNum: '',
         isbn: '',
         editionNum: '',
         typeBook: '',
@@ -95,6 +95,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters('books', [
+      'getBook',
+    ]),
     typeOptions () {
       return [{
         value: "book",
@@ -119,11 +122,64 @@ export default {
   },
   methods: {
     ...mapMutations('books', [
-      'addBook'
+      'addBook',
+      'editBook'
     ]),
     save () {
-      this.addBook({...this.form});
+      let id = this.$route.params.id
+      if (id !== undefined) {
+        this.editBook(id)
+      } else {
+        this.addBook({...this.form});
+      }
+    },
+    loadBook(id) {
+      return this.getBook(id)
+    },
+    // Обновить форму значениями книги с bookId
+    updateFormWithBook(bookId) {
+      if (bookId !== undefined) {
+        let book = this.loadBook(Number(bookId))
+        if (book !== undefined) {
+          this.form = book
+          return
+        }
+      }
+      // Если книга не найдена, но требуется обновить форму,
+      // то она обновляется дефолтным значением
+      this.form = {
+        author: '',
+        initials: '',
+        title: '',
+        city: '',
+        publisher: '',
+        year: '',
+        pages: '',
+        pagesNum: '',
+        isbn: '',
+        editionNum: '',
+        typeBook: '',
+        authorTitle: '',
+        supervisor: '',
+        university: '',
+        magazineNum: '',
+        url: '',
+        viewDate: '',
+        type: ''
+      }
     }
+  },
+  watch: {
+    '$route'(to) {
+      // При измении навигации обновлять значение формы
+      let id = to.params.id
+      this.updateFormWithBook(id)
+    }
+  },
+  created () {
+    // Перезагружать форму после обновления страницы значениями из хранилища
+    let id = this.$route.params.id
+    this.updateFormWithBook(id)
   }
 }
 </script>
