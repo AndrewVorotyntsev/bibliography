@@ -15,6 +15,14 @@
             circle
             @click="() => deleteBook(book)"
         />
+        <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
+          <el-button
+              v-if="isEdit"
+              type="primary"
+              icon="el-icon-edit"
+              circle
+          />
+        </RouterLink>
       </li>
     </component>
   </div>
@@ -22,6 +30,7 @@
 
 <script>
 import {mapActions} from "vuex";
+import {RouteNames} from "@/router/routes";
 
 export default {
   name: "ListContainer",
@@ -40,6 +49,9 @@ export default {
     }
   },
   computed: {
+    RouteNames() {
+      return RouteNames
+    },
     cssProps () {
       return this.typeList == "div" ? {
         'display': 'block'

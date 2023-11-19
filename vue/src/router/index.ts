@@ -15,6 +15,11 @@ const routes = [
     path: '/edit',
     name: RouteNames.EDIT,
     component: HomePage
+  },
+  {
+  path: '/edit/:id',
+  name: RouteNames.EDIT_ID,
+  component: HomePage
   }
 ]
 
