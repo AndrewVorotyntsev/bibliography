@@ -41,6 +41,16 @@
             </el-select>
           </div>
         </div>
+        <RouterLink v-if="$route.name === RouteNames.HOME" :to="{ name: RouteNames.EDIT } ">
+          <div class="main-block-navigation">
+            <el-button type="primary" class="main-block-navigation">Режим редактирования</el-button>
+          </div>
+        </RouterLink>
+        <RouterLink v-if="$route.name !== RouteNames.HOME" :to="{ name: RouteNames.HOME } ">
+          <div class="main-block-navigation">
+            <el-button type="primary" class="main-block-navigation">На главную</el-button>
+          </div>
+        </RouterLink>
       </div>
     </div>
     <BookForm />
@@ -126,6 +136,15 @@ export default {
 
     & .el-button {
       font-family: 'Times New Roman', Times, serif;
+    }
+  }
+
+  &-navigation {
+    text-align-last: center;
+
+    & .el-button {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 20px;
     }
   }
 }
