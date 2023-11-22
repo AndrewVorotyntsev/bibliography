@@ -1,30 +1,40 @@
 <template>
   <div>
-    <component :is="typeList">
+    <component :is="typeList" class="list-container">
       <li
         v-for="book in books" 
         :key="book.id" 
         :style="cssProps"
       >
-        {{ book.title }}, {{ book.author }}
-
-        <el-button
-            v-if="isEdit"
-            type="danger"
-            icon="el-icon-delete"
-            size="mini"
-            circle
-            @click="() => deleteBook(book)"
-        />
-        <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
-          <el-button
-              v-if="isEdit"
-              type="primary"
-              icon="el-icon-edit"
-              size="mini"
-              circle
-          />
-        </RouterLink>
+        <div class="list-container__item">
+          <span class="list-container__item__text">
+            {{ book.title }}, {{ book.author }}
+          </span>
+          <div class="list-container__item__actions">
+            <div>
+              <el-button
+                  v-if="isEdit"
+                  type="danger"
+                  icon="el-icon-delete"
+                  size="mini"
+                  circle
+                  @click="() => deleteBook(book)"
+                  class="list-container__item__actions__button"
+              />
+            </div>
+            <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
+              <div class="list-container__item__actions__button">
+                <el-button
+                    v-if="isEdit"
+                    type="primary"
+                    icon="el-icon-edit"
+                    size="mini"
+                    circle
+                />
+              </div>
+            </RouterLink>
+          </div>
+        </div>
       </li>
     </component>
   </div>
@@ -70,3 +80,41 @@ export default {
   },
 }
 </script>
+
+<style scoped lang="less">
+.list-container {
+  &__item {
+    display: inline-flex;
+
+    &__actions {
+      display: inline-flex;
+
+      &__button {
+        margin: 2px;
+      }
+    }
+
+    &__text {
+      min-width: 300px;
+      padding: 10px;
+    }
+  }
+}
+
+
+
+</style>
+
+.list-container__item {
+display: inline-flex;
+}
+.list-container__item__actions__button {margin: 5px;}
+
+.list-container__item__actions {
+display: inline-flex;
+}
+
+.list-container__item__text {
+min-width: 300px;
+padding: 10px;
+}
