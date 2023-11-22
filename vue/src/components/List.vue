@@ -12,6 +12,7 @@
             v-if="isEdit"
             type="danger"
             icon="el-icon-delete"
+            size="mini"
             circle
             @click="() => deleteBook(book)"
         />
@@ -20,6 +21,7 @@
               v-if="isEdit"
               type="primary"
               icon="el-icon-edit"
+              size="mini"
               circle
           />
         </RouterLink>
