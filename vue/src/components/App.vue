@@ -1,43 +1,45 @@
 <template>
   <div>
     <div class="main-block">
-      <div class="main-block-buttons">
-        <el-upload
-          action="#"
-          :limit="1"
-          :show-file-list="false"
-          :auto-upload="false"
-          :on-change="(file) => setFile(file)"
-        >
-          <el-button type="primary">
-            Импорт
-          </el-button>
-        </el-upload>
-        <a
-          :href="downloadRef"
-          class="el-button el-button--success"
-          download="file.json"
-          type="primary"
-        >
-         <span>Экспорт</span>
-        </a>
-      </div>
-      <div class="main-block-content">
-        <ListContainer
-            :books="books"
-            :type-list="typeOfList"
-            :is-edit="$route.name===RouteNames.EDIT"
-        />
-        <div>
-          <el-select v-model="typeOfList" placeholder="Выберите тип списка">
-            <el-option
-              v-for="item in options" 
-              :key="item.value" 
-              :label="item.label" 
-              :value="item.value"
-            >
-            </el-option>
-          </el-select>
+      <div>
+        <div class="main-block-buttons">
+          <el-upload
+              action="#"
+              :limit="1"
+              :show-file-list="false"
+              :auto-upload="false"
+              :on-change="(file) => setFile(file)"
+          >
+            <el-button type="primary">
+              Импорт
+            </el-button>
+          </el-upload>
+          <a
+              :href="downloadRef"
+              class="el-button el-button--success"
+              download="file.json"
+              type="primary"
+          >
+            <span>Экспорт</span>
+          </a>
+        </div>
+        <div class="main-block-content">
+          <ListContainer
+              :books="books"
+              :type-list="typeOfList"
+              :is-edit="$route.name===RouteNames.EDIT"
+          />
+          <div>
+            <el-select v-model="typeOfList" placeholder="Выберите тип списка">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              >
+              </el-option>
+            </el-select>
+          </div>
         </div>
       </div>
     </div>
@@ -118,6 +120,9 @@ export default {
   &-buttons {
     display: flex;
     height: fit-content;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
     & .el-button {
       font-family: 'Times New Roman', Times, serif;
