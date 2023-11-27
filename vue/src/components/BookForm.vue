@@ -212,7 +212,7 @@ export default {
     width: 70%;
 
     &__label {
-      float: left;
+      display: flex;
     }
   }
 }
