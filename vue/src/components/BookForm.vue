@@ -205,7 +205,7 @@ export default {
 .book-form {
   padding: 3px;
   margin-bottom: 5px;
-  text-align: -webkit-center;
+  text-align: center;
 
   &__input {
     margin-bottom: 5px;
