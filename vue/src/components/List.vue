@@ -38,7 +38,7 @@
           </div>
         </li>
       </div>
-      <div v-else >
+      <template v-else >
         <li
             v-for="book in books"
             :key="book.id"
@@ -46,7 +46,7 @@
         >
           {{ book.title }}, {{ book.author }}
         </li>
-      </div>
+      </template>
     </component>
   </div>
 </template>
