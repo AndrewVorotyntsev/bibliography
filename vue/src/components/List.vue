@@ -1,52 +1,44 @@
 <template>
   <div>
     <component :is="typeList" class="list-container">
-      <div v-if="isEdit">
-        <li
-            v-for="book in books"
-            :key="book.id"
-            :style="cssProps"
-        >
-          <div class="list-container__item">
+      <li
+          v-for="book in books"
+          :key="book.id"
+          :style="cssProps"
+      >
+        <div class="list-container__item" v-if="isEdit">
           <span class="list-container__item__text">
             {{ book.title }}, {{ book.author }}
           </span>
-            <div class="list-container__item__actions">
-              <div>
+          <div class="list-container__item__actions">
+            <div>
+              <el-button
+                  v-if="isEdit"
+                  type="danger"
+                  icon="el-icon-delete"
+                  size="mini"
+                  circle
+                  @click="() => deleteBook(book)"
+                  class="list-container__item__actions__button"
+              />
+            </div>
+            <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
+              <div class="list-container__item__actions__button">
                 <el-button
                     v-if="isEdit"
-                    type="danger"
-                    icon="el-icon-delete"
+                    type="primary"
+                    icon="el-icon-edit"
                     size="mini"
                     circle
-                    @click="() => deleteBook(book)"
-                    class="list-container__item__actions__button"
                 />
               </div>
-              <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
-                <div class="list-container__item__actions__button">
-                  <el-button
-                      v-if="isEdit"
-                      type="primary"
-                      icon="el-icon-edit"
-                      size="mini"
-                      circle
-                  />
-                </div>
-              </RouterLink>
-            </div>
+            </RouterLink>
           </div>
-        </li>
-      </div>
-      <template v-else >
-        <li
-            v-for="book in books"
-            :key="book.id"
-            :style="cssProps"
-        >
+        </div>
+        <template v-else>
           {{ book.title }}, {{ book.author }}
-        </li>
-      </template>
+        </template>
+      </li>
     </component>
   </div>
 </template>
