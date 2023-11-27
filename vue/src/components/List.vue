@@ -61,7 +61,7 @@ export default {
     }
   },
   computed: {
-    RouteNames() {
+    RouteNames () {
       return RouteNames
     },
     cssProps () {
@@ -100,21 +100,4 @@ export default {
     }
   }
 }
-
-
-
 </style>
-
-.list-container__item {
-display: inline-flex;
-}
-.list-container__item__actions__button {margin: 5px;}
-
-.list-container__item__actions {
-display: inline-flex;
-}
-
-.list-container__item__text {
-min-width: 300px;
-padding: 10px;
-}
