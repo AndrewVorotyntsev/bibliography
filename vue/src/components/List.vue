@@ -1,41 +1,52 @@
 <template>
   <div>
     <component :is="typeList" class="list-container">
-      <li
-        v-for="book in books" 
-        :key="book.id" 
-        :style="cssProps"
-      >
-        <div class="list-container__item">
+      <div v-if="isEdit">
+        <li
+            v-for="book in books"
+            :key="book.id"
+            :style="cssProps"
+        >
+          <div class="list-container__item">
           <span class="list-container__item__text">
             {{ book.title }}, {{ book.author }}
           </span>
-          <div class="list-container__item__actions">
-            <div>
-              <el-button
-                  v-if="isEdit"
-                  type="danger"
-                  icon="el-icon-delete"
-                  size="mini"
-                  circle
-                  @click="() => deleteBook(book)"
-                  class="list-container__item__actions__button"
-              />
-            </div>
-            <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
-              <div class="list-container__item__actions__button">
+            <div class="list-container__item__actions">
+              <div>
                 <el-button
                     v-if="isEdit"
-                    type="primary"
-                    icon="el-icon-edit"
+                    type="danger"
+                    icon="el-icon-delete"
                     size="mini"
                     circle
+                    @click="() => deleteBook(book)"
+                    class="list-container__item__actions__button"
                 />
               </div>
-            </RouterLink>
+              <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
+                <div class="list-container__item__actions__button">
+                  <el-button
+                      v-if="isEdit"
+                      type="primary"
+                      icon="el-icon-edit"
+                      size="mini"
+                      circle
+                  />
+                </div>
+              </RouterLink>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
+      </div>
+      <div v-else >
+        <li
+            v-for="book in books"
+            :key="book.id"
+            :style="cssProps"
+        >
+          {{ book.title }}, {{ book.author }}
+        </li>
+      </div>
     </component>
   </div>
 </template>
@@ -95,8 +106,7 @@ export default {
     }
 
     &__text {
-      min-width: 300px;
-      padding: 10px;
+      min-width: 200px;
     }
   }
 }
