@@ -205,11 +205,12 @@ export default {
 .book-form {
   padding: 3px;
   margin-bottom: 5px;
-  text-align: center;
 
   &__input {
     margin-bottom: 5px;
-    width: 70%;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
 
     &__label {
       display: flex;
