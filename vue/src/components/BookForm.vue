@@ -207,10 +207,10 @@ export default {
   margin-bottom: 5px;
 
   &__input {
-    margin-bottom: 5px;
     text-align: center;
     padding-left: 20%;
     padding-right: 20%;
+    margin-bottom: 5px;
 
     &__label {
       display: flex;
