@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: '/edit/:id',
-    name: RouteNames.EDIT_ID,
+    name: RouteNames.BOOK_EDIT,
     component: HomePage
   }
 ]

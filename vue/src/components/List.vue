@@ -18,11 +18,11 @@
                   icon="el-icon-delete"
                   size="mini"
                   circle
-                  @click="() => deleteBook(book)"
                   class="list-container__item__actions__button"
+                  @click="() => deleteBook(book)"
               />
             </div>
-            <RouterLink :to="{ name: RouteNames.EDIT_ID, params: { id: book.id } } ">
+            <RouterLink :to="{ name: RouteNames.BOOK_EDIT, params: { id: book.id } } ">
               <div class="list-container__item__actions__button">
                 <el-button
                     v-if="isEdit"
