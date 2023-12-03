@@ -210,7 +210,7 @@ export default {
   watch: {
     '$route'(to) {
       // При измении навигации обновлять значение формы
-      let id = to.params.id
+      const id = to.params.id
       this.updateFormWithBook(id)
     }
   },
