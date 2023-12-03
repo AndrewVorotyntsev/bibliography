@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../components/pages/Home.vue'
 import { RouteNames } from './routes'
+import EditPage from "@/components/pages/EditPage.vue";
+import EditBookPage from "@/components/pages/EditBookPage.vue";
 
 Vue.use(VueRouter)
 
@@ -14,12 +16,12 @@ const routes = [
   {
     path: '/edit',
     name: RouteNames.EDIT,
-    component: HomePage
+    component: EditPage
   },
   {
     path: '/edit/:id',
     name: RouteNames.BOOK_EDIT,
-    component: HomePage
+    component: EditBookPage
   }
 ]
 

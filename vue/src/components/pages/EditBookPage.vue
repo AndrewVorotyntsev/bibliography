@@ -36,7 +36,8 @@
                   :key="item.value"
                   :label="item.label"
                   :value="item.value"
-              />
+              >
+              </el-option>
             </el-select>
           </div>
         </div>
@@ -53,23 +54,17 @@
       </div>
     </div>
     <BookForm />
-    <section class="p-16">
-      Homepage
-      <button @click="() => openHelpModal()">Open modal</button>
-    </section>
   </div>
 </template>
 
 <script>
-import { helpModal } from "@/mixins/modals";
 import ListContainer from "@/components/List.vue";
 import BookForm from "@/components/BookForm.vue";
 import {RouteNames} from "@/router/routes";
 import {mapGetters, mapMutations} from "vuex";
 
 export default {
-  name: 'HomePage',
-  mixins: [helpModal],
+  name: 'EditBookPage',
   components: {
     BookForm,
     ListContainer
