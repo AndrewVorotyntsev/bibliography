@@ -68,17 +68,7 @@ export default {
   },
   data () {
     return {
-      typeOfList: 'div',
-      options: [{
-        value: "ul",
-        label: "Простой список"
-      }, {
-        value: "ol",
-        label: "Нумерованный список"
-      }, {
-        value: "div",
-        label: "По умолчанию"
-      }]
+      typeOfList: 'div'
     }
   },
   computed: {
@@ -94,7 +84,18 @@ export default {
     downloadRef () {
       return "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.books));
     },
-
+    options () {
+      return [{
+        value: "ul",
+        label: "Простой список"
+      }, {
+        value: "ol",
+        label: "Нумерованный список"
+      }, {
+        value: "div",
+        label: "По умолчанию"
+      }]
+    }
   },
   methods: {
     ...mapMutations('books', [
