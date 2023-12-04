@@ -52,21 +52,18 @@
         </RouterLink>
       </div>
     </div>
-    <BookForm />
   </div>
 </template>
 
 <script>
 
 import ListContainer from "@/components/List.vue";
-import BookForm from "@/components/BookForm.vue";
 import {RouteNames} from "@/router/routes";
 import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: 'EditPage',
   components: {
-    BookForm,
     ListContainer
   },
   data () {
@@ -96,7 +93,8 @@ export default {
     },
     downloadRef () {
       return "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.books));
-    }
+    },
+
   },
   methods: {
     ...mapMutations('books', [
