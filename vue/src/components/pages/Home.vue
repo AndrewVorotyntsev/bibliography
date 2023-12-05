@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <PageLayout>
     <div class="main-block">
       <div>
         <div class="main-block-buttons">
@@ -57,7 +57,7 @@
       Homepage
       <button @click="() => openHelpModal()">Open modal</button>
     </section>
-  </div>
+  </PageLayout>
 </template>
 
 <script>

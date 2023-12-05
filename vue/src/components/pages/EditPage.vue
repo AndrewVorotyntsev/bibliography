@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <PageLayout>
     <div class="main-block">
       <div>
         <div class="main-block-buttons">
@@ -52,7 +52,7 @@
         </RouterLink>
       </div>
     </div>
-  </div>
+  </PageLayout>
 </template>
 
 <script>
