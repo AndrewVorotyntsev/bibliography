@@ -146,7 +146,14 @@
           class="book-form__input__text"
       />
     </div>
-    <el-button v-if="form.type !== ''" type="primary" icon="save" @click="() => save()">Сохранить</el-button>
+    <el-button
+        v-if="form.type !== ''"
+        type="primary"
+        icon="save"
+        @click="() => save()"
+    >
+      Сохранить
+    </el-button>
   </div>
 </template>
 
