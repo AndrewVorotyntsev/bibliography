@@ -3,12 +3,12 @@
     <div class="main-block">
       <RouterLink v-if="$route.name === RouteNames.HOME" :to="{ name: RouteNames.EDIT } ">
         <div class="main-block-navigation">
-          <el-button type="primary" class="main-block-navigation">Режим редактирования</el-button>
+          <ElButton type="primary" class="main-block-navigation">Режим редактирования</ElButton>
         </div>
       </RouterLink>
       <RouterLink v-if="$route.name !== RouteNames.HOME" :to="{ name: RouteNames.HOME } ">
         <div class="main-block-navigation">
-          <el-button type="primary" class="main-block-navigation">На главную</el-button>
+          <ElButton type="primary" class="main-block-navigation">На главную</ElButton>
         </div>
       </RouterLink>
     </div>

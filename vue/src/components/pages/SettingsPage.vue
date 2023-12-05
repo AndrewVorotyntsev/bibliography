@@ -2,17 +2,17 @@
   <PageLayout>
     <div class="main-block">
       <div class="main-block-buttons">
-        <el-upload
+        <ElUpload
             action="#"
             :limit="1"
             :show-file-list="false"
             :auto-upload="false"
             :on-change="(file) => setFile(file)"
         >
-          <el-button type="primary">
+          <ElButton type="primary">
             Импорт
-          </el-button>
-        </el-upload>
+          </ElButton>
+        </ElUpload>
         <a
             :href="downloadRef"
             class="el-button el-button--success"

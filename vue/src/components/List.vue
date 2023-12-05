@@ -12,7 +12,7 @@
           </span>
           <div class="list-container__item__actions">
             <div>
-              <el-button
+              <ElButton
                   v-if="isEdit"
                   type="danger"
                   icon="el-icon-delete"
@@ -24,7 +24,7 @@
             </div>
             <RouterLink :to="{ name: RouteNames.BOOK_EDIT, params: { id: book.id } } ">
               <div class="list-container__item__actions__button">
-                <el-button
+                <ElButton
                     v-if="isEdit"
                     type="primary"
                     icon="el-icon-edit"

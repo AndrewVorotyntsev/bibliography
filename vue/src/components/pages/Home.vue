@@ -9,24 +9,24 @@
               :is-edit="$route.name===RouteNames.EDIT"
           />
           <div>
-            <el-select v-model="typeOfList" placeholder="Выберите тип списка">
-              <el-option
+            <ElSelect v-model="typeOfList" placeholder="Выберите тип списка">
+              <ElOption
                   v-for="item in options"
                   :key="item.value"
                   :label="item.label"
                   :value="item.value"
               />
-            </el-select>
+            </ElSelect>
           </div>
         </div>
         <RouterLink v-if="$route.name === RouteNames.HOME" :to="{ name: RouteNames.EDIT } ">
           <div class="main-block-navigation">
-            <el-button type="primary" class="main-block-navigation">Режим редактирования</el-button>
+            <ElButton type="primary" class="main-block-navigation">Режим редактирования</ElButton>
           </div>
         </RouterLink>
         <RouterLink v-if="$route.name !== RouteNames.HOME" :to="{ name: RouteNames.HOME } ">
           <div class="main-block-navigation">
-            <el-button type="primary" class="main-block-navigation">На главную</el-button>
+            <ElButton type="primary" class="main-block-navigation">На главную</ElButton>
           </div>
         </RouterLink>
       </div>
