@@ -57,9 +57,9 @@
 
 <script>
 
+import {mapGetters, mapMutations} from "vuex";
 import ListContainer from "@/components/List.vue";
 import {RouteNames} from "@/router/routes";
-import {mapGetters, mapMutations} from "vuex";
 
 export default {
   name: 'EditPage',
