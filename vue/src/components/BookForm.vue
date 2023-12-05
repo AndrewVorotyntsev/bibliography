@@ -185,7 +185,7 @@ export default {
   name: 'BookForm',
   data () {
     return {
-      form: emptyForm
+      form: { ...emptyForm }
     }
   },
   computed: {
