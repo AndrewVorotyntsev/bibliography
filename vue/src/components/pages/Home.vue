@@ -80,12 +80,12 @@ export default {
     }
   },
   computed: {
-    RouteNames () {
-      return RouteNames
-    },
     ...mapGetters('books', [
       'getBooks'
     ]),
+    RouteNames () {
+      return RouteNames
+    },
     books () {
       return this.getBooks
     },
