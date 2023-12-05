@@ -2,27 +2,6 @@
   <PageLayout>
     <div class="main-block">
       <div>
-        <div class="main-block-buttons">
-          <el-upload
-              action="#"
-              :limit="1"
-              :show-file-list="false"
-              :auto-upload="false"
-              :on-change="(file) => setFile(file)"
-          >
-            <el-button type="primary">
-              Импорт
-            </el-button>
-          </el-upload>
-          <a
-              :href="downloadRef"
-              class="el-button el-button--success"
-              download="file.json"
-              type="primary"
-          >
-            <span>Экспорт</span>
-          </a>
-        </div>
         <div class="main-block-content">
           <ListContainer
               :books="books"
@@ -57,13 +36,15 @@
 
 <script>
 
-import {mapGetters, mapMutations} from "vuex";
+import {mapGetters} from "vuex";
 import ListContainer from "@/components/List.vue";
 import {RouteNames} from "@/router/routes";
+import PageLayout from "@/components/parts/PageLayout.vue";
 
 export default {
   name: 'EditPage',
   components: {
+    PageLayout,
     ListContainer
   },
   data () {
@@ -81,9 +62,6 @@ export default {
     books () {
       return this.getBooks
     },
-    downloadRef () {
-      return "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.books));
-    },
     options () {
       return [{
         value: "ul",
@@ -95,18 +73,6 @@ export default {
         value: "div",
         label: "По умолчанию"
       }]
-    }
-  },
-  methods: {
-    ...mapMutations('books', [
-      'setBooks'
-    ]),
-    setFile (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        this.setBooks(JSON.parse(e.target.result));
-      }
-      reader.readAsText(file.raw);
     }
   }
 }

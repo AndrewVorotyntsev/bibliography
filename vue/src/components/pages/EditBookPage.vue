@@ -21,10 +21,12 @@
 <script>
 import BookForm from "@/components/BookForm.vue";
 import {RouteNames} from "@/router/routes";
+import PageLayout from "@/components/parts/PageLayout.vue";
 
 export default {
   name: 'EditBookPage',
   components: {
+    PageLayout,
     BookForm
   },
   computed: {
