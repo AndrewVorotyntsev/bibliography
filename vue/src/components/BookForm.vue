@@ -214,14 +214,7 @@ export default {
       }]
     }
   },
-  watch: {
-    '$route'(to) {
-      // При измении навигации обновлять значение формы
-      const id = to.params.id
-      this.updateFormWithBook(id)
-    }
-  },
-  created () {
+  mounted () {
     // Перезагружать форму после обновления страницы значениями из хранилища
     const id = this.$route.params.id
     this.updateFormWithBook(id)
