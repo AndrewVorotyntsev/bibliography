@@ -32,21 +32,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap');
-
-.main-block {
-  display: flex;
-  justify-content: center;
-
-  &-navigation {
-    text-align-last: center;
-
-    & .el-button {
-      font-family: 'Times New Roman', Times, serif;
-      margin: 20px;
-    }
-  }
-}
-</style>
