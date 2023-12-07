@@ -181,7 +181,7 @@ const emptyForm = {
   url: '',
   viewDate: '',
   type: '',
-  isVisible: true
+  configIsVisible: true
 }
 
 export default {
