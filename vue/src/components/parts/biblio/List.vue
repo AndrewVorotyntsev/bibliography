@@ -49,7 +49,7 @@
             />
           </div>
         </div>
-        <template v-else-if="book.isVisible">
+        <template v-else>
           {{ book.title }}, {{ book.authors }}
         </template>
       </li>
