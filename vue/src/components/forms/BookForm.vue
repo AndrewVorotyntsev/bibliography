@@ -29,7 +29,7 @@
       </div>
     </div>
     <ElButton
-        v-if="form.type !== ''"
+        v-if="form.type !== 'web' && form.type !== ''"
         type="primary"
         icon="save"
         @click="() => addAuthor()"
