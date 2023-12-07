@@ -2,7 +2,7 @@
   <div class="list-container__wrapper">
     <Component :is="typeList" class="list-container">
       <li
-        v-for="book in books"
+        v-for="book in visibleBooks"
         :key="book.id"
         :style="cssProps"
       >
@@ -11,6 +11,24 @@
             {{ book.title }}, {{ book.author }}
           </span>
           <div class="list-container__item__actions">
+            <ElButton
+                v-if="book.isVisible"
+                type="primary"
+                icon="el-icon-view"
+                size="mini"
+                circle
+                class="list-container__item__actions__button"
+                @click="() => hideBook(book)"
+            />
+            <ElButton
+                v-else
+                type="danger"
+                icon="el-icon-view"
+                size="mini"
+                circle
+                class="list-container__item__actions__button"
+                @click="() => hideBook(book)"
+            />
             <RouterLink :to="{ name: RouteNames.BOOK_EDIT, params: { id: book.id } } ">
               <div class="list-container__item__actions__button">
                 <ElButton
@@ -31,7 +49,7 @@
             />
           </div>
         </div>
-        <template v-else>
+        <template v-else-if="book.isVisible">
           {{ book.title }}, {{ book.authors }}
         </template>
       </li>
@@ -40,7 +58,7 @@
 </template>
 
 <script>
-import {mapActions} from "vuex";
+import {mapActions, mapMutations} from "vuex";
 import {RouteNames} from "@/router/routes";
 
 export default {
@@ -59,6 +77,11 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      visibleBooks: this.books,
+    };
+  },
   computed: {
     RouteNames () {
       return RouteNames
@@ -69,14 +92,26 @@ export default {
       } : {}
     }
   },
+  mounted() {
+    if (!this.isEdit) {
+      this.visibleBooks = this.books.filter((book) => book.isVisible);
+    }
+  },
   methods: {
     ...mapActions('books', [
       'removeBook'
     ]),
+    ...mapMutations('books', [
+      'editBook'
+    ]),
     deleteBook (book) {
       this.removeBook(book.id)
+    },
+    hideBook (book) {
+      book.isVisible = !book.isVisible
+      this.editBook(book)
     }
-  },
+  }
 }
 </script>
 

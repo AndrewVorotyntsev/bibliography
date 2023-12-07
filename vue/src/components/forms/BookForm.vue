@@ -188,7 +188,8 @@ const emptyForm = {
   magazineNum: '',
   url: '',
   viewDate: '',
-  type: ''
+  type: '',
+  isVisible: true
 }
 
 export default {
