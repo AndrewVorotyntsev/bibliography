@@ -10,16 +10,14 @@
         />
       </ElSelect>
     </div>
-    <div v-for="(item, index) in form.authors" :key="index" >
-      <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
+    <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
+      <div v-for="(item, index) in form.authors" :key="index" >
         <span class="book-form__input__label">Автор</span>
         <ElInput
             v-model="form.authors[index]"
             placeholder="Укажите фамилию автора"
             class="book-form__input__text"
         />
-      </div>
-      <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
         <span class="book-form__input__label">Инициалы автора</span>
         <ElInput
             v-model="form.initials[index]"
@@ -27,15 +25,15 @@
             class="book-form__input__text"
         />
       </div>
+      <ElButton
+          v-if="form.type !== 'web' && form.type !== ''"
+          type="primary"
+          icon="save"
+          @click="() => addAuthor()"
+      >
+        Добавить автора
+      </ElButton>
     </div>
-    <ElButton
-        v-if="form.type !== 'web' && form.type !== ''"
-        type="primary"
-        icon="save"
-        @click="() => addAuthor()"
-    >
-      Добавить автора
-    </ElButton>
     <div v-if="form.type !== ''" class="book-form__input">
       <span class="book-form__input__label">Заглавие</span>
       <ElInput
