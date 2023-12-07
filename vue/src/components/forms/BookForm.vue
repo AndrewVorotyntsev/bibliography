@@ -12,20 +12,18 @@
     </div>
     <div v-for="(item, index) in form.authors" :key="index" >
       <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
-        <span v-if="index === 0" class="book-form__input__label">Автор</span>
-        <span v-else class="book-form__input__label">Соавтор</span>
+        <span class="book-form__input__label">Автор</span>
         <ElInput
             v-model="form.authors[index]"
-            placeholder="Укажите фамилию"
+            placeholder="Укажите фамилию автора"
             class="book-form__input__text"
         />
       </div>
       <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
-        <span v-if="index === 0" class="book-form__input__label">Инициалы автора</span>
-        <span v-else class="book-form__input__label">Инициалы соавтора</span>
+        <span class="book-form__input__label">Инициалы автора</span>
         <ElInput
             v-model="form.initials[index]"
-            placeholder="Укажите инициалы"
+            placeholder="Укажите инициалы автора"
             class="book-form__input__text"
         />
       </div>
@@ -34,9 +32,9 @@
         v-if="form.type !== ''"
         type="primary"
         icon="save"
-        @click="() => addCoauthor()"
+        @click="() => addAuthor()"
     >
-      Добавить соавтора
+      Добавить автора
     </ElButton>
     <div v-if="form.type !== ''" class="book-form__input">
       <span class="book-form__input__label">Заглавие</span>
@@ -260,7 +258,7 @@ export default {
       // то она обновляется дефолтным значением
       this.form = { ...emptyForm }
     },
-    addCoauthor () {
+    addAuthor () {
       this.form.authors.push('')
       this.form.initials.push('')
     }

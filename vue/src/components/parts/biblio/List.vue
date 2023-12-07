@@ -32,7 +32,7 @@
           </div>
         </div>
         <template v-else>
-          {{ book.title }}, {{ book.authors.join(", ")  }}
+          {{ book.title }}, {{ book.authors }}
         </template>
       </li>
     </component>
