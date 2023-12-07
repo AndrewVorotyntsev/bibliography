@@ -77,7 +77,7 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
       visibleBooks: this.books,
     };
