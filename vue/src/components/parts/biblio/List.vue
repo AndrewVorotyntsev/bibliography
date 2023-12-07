@@ -8,7 +8,7 @@
       >
         <div v-if="isEdit" class="list-container__item">
           <span class="list-container__item__text">
-            {{ book.title }}, {{ book.author }}
+            {{ book.title }}, {{ book.authors }}
           </span>
           <div class="list-container__item__actions">
             <ElButton
