@@ -77,7 +77,7 @@ export default {
       default: false
     }
   },
-  data() {
+  data () {
     return {
       visibleBooks: this.books,
     };
@@ -92,7 +92,7 @@ export default {
       } : {}
     }
   },
-  mounted() {
+  mounted () {
     if (!this.isEdit) {
       this.visibleBooks = this.books.filter((book) => book.isVisible);
     }
