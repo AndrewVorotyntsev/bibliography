@@ -15,7 +15,6 @@
         <AuthorForm v-model="form.authors[index]" :index="index" />
       </div>
       <ElButton
-          v-if="form.type !== 'web' && form.type !== ''"
           type="primary"
           icon="save"
           @click="() => addAuthor()"

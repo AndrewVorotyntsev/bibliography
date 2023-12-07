@@ -8,9 +8,9 @@
             :style="cssProps"
         >
           <div v-if="isEdit" class="list-container__item">
-          <span class="list-container__item__text">
-            {{ book.title }}, {{ book.authors }}
-          </span>
+            <span class="list-container__item__text">
+              {{ book.title }}, {{ book.authors }}
+            </span>
             <div class="list-container__item__actions">
               <ElButton
                   :type="book.configIsVisible ? 'primary': 'danger'"
@@ -21,14 +21,13 @@
                   @click="() => hideBook(book)"
               />
               <RouterLink :to="{ name: RouteNames.BOOK_EDIT, params: { id: book.id } } ">
-                <div class="list-container__item__actions__button">
-                  <ElButton
-                      type="primary"
-                      icon="el-icon-edit"
-                      size="mini"
-                      circle
-                  />
-                </div>
+                <ElButton
+                    type="primary"
+                    icon="el-icon-edit"
+                    size="mini"
+                    circle
+                    class="list-container__item__actions__button"
+                />
               </RouterLink>
               <ElButton
                   type="danger"
