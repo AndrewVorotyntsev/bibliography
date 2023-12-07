@@ -12,18 +12,7 @@
     </div>
     <div v-if="form.type !== 'web' && form.type !== ''" class="book-form__input">
       <div v-for="(item, index) in form.authors" :key="index" >
-        <span class="book-form__input__label">Автор</span>
-        <ElInput
-            v-model="form.authors[index]"
-            placeholder="Укажите фамилию автора"
-            class="book-form__input__text"
-        />
-        <span class="book-form__input__label">Инициалы автора</span>
-        <ElInput
-            v-model="form.initials[index]"
-            placeholder="Укажите инициалы автора"
-            class="book-form__input__text"
-        />
+        <AuthorForm v-model="form.authors[index]" :index="index" />
       </div>
       <ElButton
           v-if="form.type !== 'web' && form.type !== ''"
@@ -167,10 +156,15 @@
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
+import AuthorForm from "@/components/forms/AuthorForm.vue";
 
 const emptyForm = {
-  authors: [''],
-  initials: [''],
+  authors: [
+    {
+      name: "",
+      initials: ""
+    }
+  ],
   title: '',
   city: '',
   publisher: '',
@@ -192,6 +186,7 @@ const emptyForm = {
 
 export default {
   name: 'BookForm',
+  components: {AuthorForm},
   data () {
     return {
       form: { ...emptyForm }
@@ -258,14 +253,16 @@ export default {
       this.form = { ...emptyForm }
     },
     addAuthor () {
-      this.form.authors.push('')
-      this.form.initials.push('')
+      this.form.authors.push({
+        name: '',
+        initials: ''
+      })
     }
   }
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
 .book-form {
   padding: 3px;
   margin-bottom: 5px;
@@ -282,6 +279,7 @@ export default {
 
     &__text {
       width: 500px;
+      padding-bottom: 5px;
     }
   }
 }
